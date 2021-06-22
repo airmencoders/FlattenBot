@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054,2748" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054,2432" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
       <x:String>System.Activities</x:String>
@@ -65,7 +65,7 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="722,2683" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="704,2367" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="toFlattenFolder" />
       <Variable x:TypeArguments="s:String[]" Name="filesArray" />
@@ -76,9 +76,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="680,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to get started&quot;]" />
-    <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="680,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[toFlattenFolder]" />
-    <Assign sap:VirtualizedContainerService.HintSize="680,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="662,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to get started&quot;]" />
+    <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="662,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[toFlattenFolder]" />
+    <Assign sap:VirtualizedContainerService.HintSize="662,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[filesArray]</OutArgument>
       </Assign.To>
@@ -86,25 +86,25 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(toFlattenFolder)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="680,2229" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="662,1913" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="644,2095" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence sap:VirtualizedContainerService.HintSize="626,1779" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="602,2003" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="584,1687" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="560,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign sap:VirtualizedContainerService.HintSize="542,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[sFiles]</OutArgument>
                 </Assign.To>
@@ -112,26 +112,26 @@
                   <InArgument x:TypeArguments="x:String">[sFiles + item.ToString + System.Environment.NewLine]</InArgument>
                 </Assign.Value>
               </Assign>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="560,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[Path.GetExtension(item.ToString)]" />
-              <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="560,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
-              <Switch x:TypeArguments="x:String" DisplayName="Switch based on extension" Expression="[Path.GetExtension(item.ToString)]" sap:VirtualizedContainerService.HintSize="560,1583" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="542,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[Path.GetExtension(item.ToString)]" />
+              <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="542,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
+              <Switch x:TypeArguments="x:String" DisplayName="Switch based on extension" Expression="[Path.GetExtension(item.ToString)]" sap:VirtualizedContainerService.HintSize="542,1267" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                 <Switch.Default>
                   <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Default" />
                 </Switch.Default>
-                <Sequence x:Key=".pdf" sap:VirtualizedContainerService.HintSize="520,1377" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence x:Key=".pdf" sap:VirtualizedContainerService.HintSize="502,1061" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="478,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="PDF" />
-                  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="478,1184" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="460,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="PDF" />
+                  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="460,868" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="436,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="p" KeyModifiers="Ctrl">
+                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="418,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="p" KeyModifiers="Ctrl">
                       <ui:SendHotkey.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb3fa913-dca0-454e-bdf3-5636bb2dae09" InformativeScreenshot="0990af412d9d230e5f64954068ce0dab" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' omit:title='CMPSoftware-PBL-App.pdf - Adobe Acrobat Pro DC (32-bit)' /&gt;">
                           <ui:Target.TimeoutMS>
@@ -143,7 +143,7 @@
                         </ui:Target>
                       </ui:SendHotkey.Target>
                     </ui:SendHotkey>
-                    <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="436,582" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="418,582" sap2010:WorkflowViewState.IdRef="Sequence_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -202,32 +202,6 @@
                         </ui:Click>
                       </Sequence>
                     </Sequence>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,276" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                      <ui:CommentOut.Body>
-                        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'push button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_8" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                            <ui:Click.CursorPosition>
-                              <ui:CursorPosition OffsetX="28" OffsetY="2" Position="TopLeft" />
-                            </ui:Click.CursorPosition>
-                            <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="796a99a3-e85e-4a06-9aea-5b630f8478fa" InformativeScreenshot="e57621eb43f9b0cab75d1a93cc14376f" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' title='781.pdf - Adobe Acrobat Pro DC (32-bit)' /&gt;&lt;wnd cls='AVL_AVView' title='AVDocumentMainView' /&gt;&lt;ctrl name='Protected View: This file originated from a potentially unsafe l*' role='grouping' /&gt;&lt;ctrl name='AVToolBarView' role='tool bar' /&gt;&lt;ctrl name='Enable All Features' role='push button' /&gt;">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                                <ui:Target.WaitForReady>
-                                  <InArgument x:TypeArguments="ui:WaitForReady" />
-                                </ui:Target.WaitForReady>
-                              </ui:Target>
-                            </ui:Click.Target>
-                          </ui:Click>
-                        </Sequence>
-                      </ui:CommentOut.Body>
-                    </ui:CommentOut>
                   </Sequence>
                 </Sequence>
                 <x:Null x:Key=".docx" />
@@ -237,6 +211,6 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="680,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[sFiles]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="662,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[sFiles]" />
   </Sequence>
 </Activity>
