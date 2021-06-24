@@ -80,7 +80,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="895,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to pull the original PDFs from.  Please make those files are not currently open in Adobe. Thanks&quot;]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="895,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to pull the original PDFs from.  Please make sure those files are not currently open in Adobe. Thanks&quot;]" />
     <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="895,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[toFlattenFolder]" />
     <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Dest Folder" sap:VirtualizedContainerService.HintSize="895,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[toFlattenFolder + &quot;\flat&quot;]" />
     <Assign sap:VirtualizedContainerService.HintSize="895,60" sap2010:WorkflowViewState.IdRef="Assign_1">
