@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054,1521" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1488,1767" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
       <x:String>System.Activities</x:String>
@@ -80,7 +80,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="616,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to pull the original PDFs from.  Please make sure those files are not currently open in Adobe. Thanks&quot;]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="616,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to pull the original PDFs from. Thanks&quot;]" />
     <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="616,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[toFlattenFolder]" />
     <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Dest Folder" sap:VirtualizedContainerService.HintSize="616,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[toFlattenFolder + &quot;\flat&quot;]" />
     <Assign sap:VirtualizedContainerService.HintSize="616,60" sap2010:WorkflowViewState.IdRef="Assign_1">
@@ -91,19 +91,19 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(toFlattenFolder)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="616,784" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="616,657" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Sequence - per file" sap:VirtualizedContainerService.HintSize="580,650" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Sequence - per file" sap:VirtualizedContainerService.HintSize="580,523" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538,558" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538,431" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,52 +119,37 @@
                 </Assign.Value>
               </Assign>
               <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="496,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[Path.GetExtension(item.ToString)]" />
-              <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="496,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
               <Switch x:TypeArguments="x:String" DisplayName="Switch based on extension" Expression="[Path.GetExtension(item.ToString)]" sap:VirtualizedContainerService.HintSize="496,138" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                 <Switch.Default>
-                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;File types of &quot;+Path.GetExtension(item.ToString)+ &quot;are not supported.&quot;]" />
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Skipping file: &quot;+ item.ToString + &quot;. File types of &quot;+Path.GetExtension(item.ToString)+  &quot; are not supported.&quot;]" />
                 </Switch.Default>
-                <Sequence x:Key=".pdf" DisplayName="Sequence pdf" sap:VirtualizedContainerService.HintSize="735,2417" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence x:Key=".pdf" sap:VirtualizedContainerService.HintSize="777,2930" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="693,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="PDF" />
-                  <Sequence DisplayName="PrintSequence" sap:VirtualizedContainerService.HintSize="693,2224" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                    <Sequence.Variables>
-                      <Variable x:TypeArguments="x:String" Name="fileName" />
-                    </Sequence.Variables>
+                  <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="735,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
+                  <Sequence DisplayName="Sequence pdf" sap:VirtualizedContainerService.HintSize="735,2711" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="651,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
-                    <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="651,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="p" KeyModifiers="Ctrl">
-                      <ui:SendHotkey.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb3fa913-dca0-454e-bdf3-5636bb2dae09" InformativeScreenshot="0990af412d9d230e5f64954068ce0dab" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' omit:title='CMPSoftware-PBL-App.pdf - Adobe Acrobat Pro DC (32-bit)' /&gt;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                          <ui:Target.WaitForReady>
-                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                          </ui:Target.WaitForReady>
-                        </ui:Target>
-                      </ui:SendHotkey.Target>
-                    </ui:SendHotkey>
-                    <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="651,1156" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="693,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="PDF" />
+                    <Sequence DisplayName="PrintSequence" sap:VirtualizedContainerService.HintSize="693,2518" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="x:String" Name="fileName" />
+                      </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="609,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                        <ui:Click.CursorPosition>
-                          <ui:CursorPosition OffsetX="29" OffsetY="13" Position="TopLeft" />
-                        </ui:Click.CursorPosition>
-                        <ui:Click.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ba18fb3-27cf-4ae6-9fc8-c738d2b5dac3" InformativeScreenshot="4f25bc0b631fcba988ed3465b65058d1" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Adobe Acrobat' /&gt;&lt;wnd aaname='Enable All Features' cls='Button' title='&amp;amp;Enable All Features' /&gt;">
+                      <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="651,22" sap2010:WorkflowViewState.IdRef="Delay_5" />
+                      <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SpecialKey="{x:Null}" Activate="True" DisplayName="Send Hotkey 'acrobat.exe'" sap:VirtualizedContainerService.HintSize="651,154" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="p" KeyModifiers="Ctrl">
+                        <ui:SendHotkey.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cb3fa913-dca0-454e-bdf3-5636bb2dae09" InformativeScreenshot="0990af412d9d230e5f64954068ce0dab" Selector="&lt;wnd app='acrobat.exe' cls='AcrobatSDIWindow' omit:title='CMPSoftware-PBL-App.pdf - Adobe Acrobat Pro DC (32-bit)' /&gt;">
                             <ui:Target.TimeoutMS>
                               <InArgument x:TypeArguments="x:Int32" />
                             </ui:Target.TimeoutMS>
@@ -172,120 +157,158 @@
                               <InArgument x:TypeArguments="ui:WaitForReady" />
                             </ui:Target.WaitForReady>
                           </ui:Target>
-                        </ui:Click.Target>
-                      </ui:Click>
-                      <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="609,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
-                      <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="609,856" sap2010:WorkflowViewState.IdRef="DoWhile_1">
-                        <DoWhile.Variables>
-                          <Variable x:TypeArguments="x:String" Name="tempPrinterText" />
-                        </DoWhile.Variables>
-                        <DoWhile.Condition>
-                          <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="instr(tempPrinterText, &quot;Microsoft Print to PDF&quot;) &lt;1" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
-                        </DoWhile.Condition>
-                        <Sequence sap:VirtualizedContainerService.HintSize="563,694" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                          <Sequence.Variables>
-                            <Variable x:TypeArguments="x:String" Name="flattenedFolder" />
-                          </Sequence.Variables>
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'ComboBox'" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
-                            <ui:GetValue.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="54d723ac-d7ec-41c7-8057-a52ac90bcd9c" InformativeScreenshot="9f903cdda49f66069ab3ccd2c1ea5de1" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Print' /&gt;&lt;wnd aaname='Printer:' cls='ComboBoxEx32' /&gt;&lt;wnd aaname='Printer:' cls='ComboBox' /&gt;" WaitForReady="INTERACTIVE">
-                                <ui:Target.TimeoutMS>
-                                  <InArgument x:TypeArguments="x:Int32" />
-                                </ui:Target.TimeoutMS>
-                              </ui:Target>
-                            </ui:GetValue.Target>
-                            <ui:GetValue.Value>
-                              <OutArgument x:TypeArguments="x:String">[tempPrinterText]</OutArgument>
-                            </ui:GetValue.Value>
-                          </ui:GetValue>
-                          <If Condition="[instr(tempPrinterText, &quot;Microsoft Print to PDF&quot;) &gt; 0]" sap:VirtualizedContainerService.HintSize="521,456" sap2010:WorkflowViewState.IdRef="If_1">
-                            <If.Else>
-                              <Sequence sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey 'ComboBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="m" KeyModifiers="None" SendWindowMessages="False" SpecialKey="False">
-                                  <ui:SendHotkey.Target>
-                                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="526a5dce-0a92-42ac-b9ae-4b9f9b95e094" InformativeScreenshot="d1680b79ff8f9a0e49ce5dc69f75f149" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Print' /&gt;&lt;wnd aaname='Printer:' cls='ComboBoxEx32' /&gt;&lt;wnd aaname='Printer:' cls='ComboBox' /&gt;" WaitForReady="INTERACTIVE">
-                                      <ui:Target.TimeoutMS>
-                                        <InArgument x:TypeArguments="x:Int32" />
-                                      </ui:Target.TimeoutMS>
-                                    </ui:Target>
-                                  </ui:SendHotkey.Target>
-                                </ui:SendHotkey>
-                                <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
-                              </Sequence>
-                            </If.Else>
-                          </If>
-                        </Sequence>
-                      </DoWhile>
-                    </Sequence>
-                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
-                      <ui:Click.CursorPosition>
-                        <ui:CursorPosition Position="Center">
-                          <ui:CursorPosition.OffsetX>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetX>
-                          <ui:CursorPosition.OffsetY>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:CursorPosition.OffsetY>
-                        </ui:CursorPosition>
-                      </ui:Click.CursorPosition>
-                      <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7b47205a-8088-425c-9b5a-7403083d0c7f" InformativeScreenshot="4bbbf7ad17dd51fdeb525fcf97be533e" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Print' /&gt;&lt;wnd cls='Button' title='Print' /&gt;" WaitForReady="INTERACTIVE">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                        </ui:Target>
-                      </ui:Click.Target>
-                    </ui:Click>
-                    <Assign sap:VirtualizedContainerService.HintSize="651,60" sap2010:WorkflowViewState.IdRef="Assign_3">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[Path.GetFileName(item.ToString)]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                    <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Set Text 'Edit'" sap:VirtualizedContainerService.HintSize="651,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[toFlattenFolder+&quot;\flat\&quot; + &quot;flat_&quot; + fileName]">
-                      <ui:SetValue.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8388ffd5-2045-446c-8f62-cba34def7fc8" InformativeScreenshot="a6cd04efa638b7dd88125fc616812a7d" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Save Print Output As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;&lt;ctrl name='File name:' role='editable text' /&gt;" WaitForReady="COMPLETE">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
-                        </ui:Target>
-                      </ui:SetValue.Target>
-                    </ui:SetValue>
-                    <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="651,198" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                        </ui:SendHotkey.Target>
+                      </ui:SendHotkey>
+                      <Sequence DisplayName="PDFPrintSequence" sap:VirtualizedContainerService.HintSize="651,1450" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="x:Boolean" Name="EnableFeatsPopUp" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:UiElementExists DisplayName="Element Exists 'acrobat.exe Adobe'" Exists="[EnableFeatsPopUp]" sap:VirtualizedContainerService.HintSize="609,106" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+                          <ui:UiElementExists.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="45293927-885b-43b3-aeba-8916a7c1762f" InformativeScreenshot="405d4fefd8e791715a0272753baa3ecf" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Adobe Acrobat' /&gt;" TimeoutMS="1000">
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:UiElementExists.Target>
+                        </ui:UiElementExists>
+                        <If Condition="[EnableFeatsPopUp]" sap:VirtualizedContainerService.HintSize="609,254" sap2010:WorkflowViewState.IdRef="If_2">
+                          <If.Then>
+                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition OffsetX="29" OffsetY="13" Position="TopLeft" />
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ba18fb3-27cf-4ae6-9fc8-c738d2b5dac3" InformativeScreenshot="4f25bc0b631fcba988ed3465b65058d1" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Adobe Acrobat' /&gt;&lt;wnd aaname='Enable All Features' cls='Button' title='&amp;amp;Enable All Features' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:Click.Target>
+                            </ui:Click>
+                          </If.Then>
+                        </If>
+                        <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="609,22" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                        <DoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="609,856" sap2010:WorkflowViewState.IdRef="DoWhile_1">
+                          <DoWhile.Variables>
+                            <Variable x:TypeArguments="x:String" Name="tempPrinterText" />
+                          </DoWhile.Variables>
+                          <DoWhile.Condition>
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="instr(tempPrinterText, &quot;Microsoft Print to PDF&quot;) &lt;1" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                          </DoWhile.Condition>
+                          <Sequence sap:VirtualizedContainerService.HintSize="563,694" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="x:String" Name="flattenedFolder" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'ComboBox'" sap:VirtualizedContainerService.HintSize="521,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                              <ui:GetValue.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="54d723ac-d7ec-41c7-8057-a52ac90bcd9c" InformativeScreenshot="9f903cdda49f66069ab3ccd2c1ea5de1" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Print' /&gt;&lt;wnd aaname='Printer:' cls='ComboBoxEx32' /&gt;&lt;wnd aaname='Printer:' cls='ComboBox' /&gt;" WaitForReady="INTERACTIVE">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                </ui:Target>
+                              </ui:GetValue.Target>
+                              <ui:GetValue.Value>
+                                <OutArgument x:TypeArguments="x:String">[tempPrinterText]</OutArgument>
+                              </ui:GetValue.Value>
+                            </ui:GetValue>
+                            <If Condition="[instr(tempPrinterText, &quot;Microsoft Print to PDF&quot;) &gt; 0]" sap:VirtualizedContainerService.HintSize="521,456" sap2010:WorkflowViewState.IdRef="If_1">
+                              <If.Else>
+                                <Sequence sap:VirtualizedContainerService.HintSize="376,308" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey 'ComboBox'" EmptyField="False" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="m" KeyModifiers="None" SendWindowMessages="False" SpecialKey="False">
+                                    <ui:SendHotkey.Target>
+                                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="526a5dce-0a92-42ac-b9ae-4b9f9b95e094" InformativeScreenshot="d1680b79ff8f9a0e49ce5dc69f75f149" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Print' /&gt;&lt;wnd aaname='Printer:' cls='ComboBoxEx32' /&gt;&lt;wnd aaname='Printer:' cls='ComboBox' /&gt;" WaitForReady="INTERACTIVE">
+                                        <ui:Target.TimeoutMS>
+                                          <InArgument x:TypeArguments="x:Int32" />
+                                        </ui:Target.TimeoutMS>
+                                      </ui:Target>
+                                    </ui:SendHotkey.Target>
+                                  </ui:SendHotkey>
+                                  <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                          </Sequence>
+                        </DoWhile>
+                      </Sequence>
+                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" AlterIfDisabled="True" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                         <ui:Click.CursorPosition>
-                          <ui:CursorPosition OffsetX="55" OffsetY="11" Position="TopLeft" />
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
                         </ui:Click.CursorPosition>
                         <ui:Click.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="145cebf7-5e3a-4071-9544-46ab05ce0794" InformativeScreenshot="5a6b229489c98c3bf307e68249c44dc3" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Save Print Output As' /&gt;&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;">
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7b47205a-8088-425c-9b5a-7403083d0c7f" InformativeScreenshot="4bbbf7ad17dd51fdeb525fcf97be533e" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Print' /&gt;&lt;wnd cls='Button' title='Print' /&gt;" WaitForReady="INTERACTIVE">
                             <ui:Target.TimeoutMS>
                               <InArgument x:TypeArguments="x:Int32" />
                             </ui:Target.TimeoutMS>
-                            <ui:Target.WaitForReady>
-                              <InArgument x:TypeArguments="ui:WaitForReady" />
-                            </ui:Target.WaitForReady>
                           </ui:Target>
                         </ui:Click.Target>
                       </ui:Click>
+                      <Assign sap:VirtualizedContainerService.HintSize="651,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[Path.GetFileName(item.ToString)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:SetValue ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" AlterIfDisabled="True" DisplayName="Set Text 'Edit'" sap:VirtualizedContainerService.HintSize="651,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[toFlattenFolder+&quot;\flat\&quot; + &quot;flat_&quot; + fileName]">
+                        <ui:SetValue.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8388ffd5-2045-446c-8f62-cba34def7fc8" InformativeScreenshot="a6cd04efa638b7dd88125fc616812a7d" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Save Print Output As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;&lt;ctrl name='File name:' role='editable text' /&gt;" WaitForReady="COMPLETE">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                          </ui:Target>
+                        </ui:SetValue.Target>
+                      </ui:SetValue>
+                      <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="651,198" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition OffsetX="55" OffsetY="11" Position="TopLeft" />
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="145cebf7-5e3a-4071-9544-46ab05ce0794" InformativeScreenshot="5a6b229489c98c3bf307e68249c44dc3" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Save Print Output As' /&gt;&lt;wnd ctrlid='1' title='&amp;amp;Save' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </Sequence>
+                      <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="651,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
                     </Sequence>
-                    <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="651,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
                   </Sequence>
                 </Sequence>
               </Switch>
@@ -295,6 +318,7 @@
       </ui:ForEach.Body>
     </ui:ForEach>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="616,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[sFiles]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="616,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Completed, your files are here: &quot;+ toFlattenFolder+&quot;\flat&quot;]" />
+    <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot;&quot;+toFlattenFolder+&quot;\flat&quot;]" DisplayName="Start Process" FileName="explorer.exe" sap:VirtualizedContainerService.HintSize="616,87" sap2010:WorkflowViewState.IdRef="StartProcess_3" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="616,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Completed, your files are here. Thanks for using FlattenBot and be sure to tell a friend&quot;]" />
   </Sequence>
 </Activity>
