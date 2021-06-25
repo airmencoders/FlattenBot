@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054,4006" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1054,1521" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
       <x:String>System.Activities</x:String>
@@ -68,7 +68,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="937,3941" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="658,1456" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="toFlattenFolder" />
       <Variable x:TypeArguments="s:String[]" Name="filesArray" />
@@ -80,10 +80,10 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="895,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to pull the original PDFs from.  Please make sure those files are not currently open in Adobe. Thanks&quot;]" />
-    <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="895,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[toFlattenFolder]" />
-    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Dest Folder" sap:VirtualizedContainerService.HintSize="895,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[toFlattenFolder + &quot;\flat&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="895,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="616,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Welcome to FlattenBot, please choose a folder to pull the original PDFs from.  Please make sure those files are not currently open in Adobe. Thanks&quot;]" />
+    <ui:SelectFolder DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="616,22" sap2010:WorkflowViewState.IdRef="SelectFolder_3" SelectedFolder="[toFlattenFolder]" />
+    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Dest Folder" sap:VirtualizedContainerService.HintSize="616,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[toFlattenFolder + &quot;\flat&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="616,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="s:String[]">[filesArray]</OutArgument>
       </Assign.To>
@@ -91,26 +91,26 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(toFlattenFolder)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="895,3269" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="616,784" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Sequence - per file" sap:VirtualizedContainerService.HintSize="859,3135" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Sequence - per file" sap:VirtualizedContainerService.HintSize="580,650" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="817,3043" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="538,558" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign sap:VirtualizedContainerService.HintSize="775,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign sap:VirtualizedContainerService.HintSize="496,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:String">[sFiles]</OutArgument>
                 </Assign.To>
@@ -118,11 +118,11 @@
                   <InArgument x:TypeArguments="x:String">[sFiles + item.ToString + System.Environment.NewLine]</InArgument>
                 </Assign.Value>
               </Assign>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="775,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[Path.GetExtension(item.ToString)]" />
-              <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="775,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
-              <Switch x:TypeArguments="x:String" DisplayName="Switch based on extension" Expression="[Path.GetExtension(item.ToString)]" sap:VirtualizedContainerService.HintSize="775,2623" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="496,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[Path.GetExtension(item.ToString)]" />
+              <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="496,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
+              <Switch x:TypeArguments="x:String" DisplayName="Switch based on extension" Expression="[Path.GetExtension(item.ToString)]" sap:VirtualizedContainerService.HintSize="496,138" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                 <Switch.Default>
-                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Default" />
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;File types of &quot;+Path.GetExtension(item.ToString)+ &quot;are not supported.&quot;]" />
                 </Switch.Default>
                 <Sequence x:Key=".pdf" DisplayName="Sequence pdf" sap:VirtualizedContainerService.HintSize="735,2417" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -288,14 +288,13 @@
                     <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="651,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
                   </Sequence>
                 </Sequence>
-                <x:Null x:Key=".docx" />
               </Switch>
             </Sequence>
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="895,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[sFiles]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="895,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Completed, your files are here: &quot;+ toFlattenFolder+&quot;\flat&quot;]" />
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="616,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[sFiles]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="616,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Completed, your files are here: &quot;+ toFlattenFolder+&quot;\flat&quot;]" />
   </Sequence>
 </Activity>
