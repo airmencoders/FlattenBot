@@ -68,7 +68,7 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="979,4432" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Basic" sap:VirtualizedContainerService.HintSize="979,5026" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="toFlattenFolder" />
       <Variable x:TypeArguments="s:String[]" Name="filesArray" />
@@ -91,19 +91,19 @@
         <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(toFlattenFolder)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each PDF" sap:VirtualizedContainerService.HintSize="937,3633" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
+    <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each PDF" sap:VirtualizedContainerService.HintSize="937,4165" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[filesArray]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Sequence - per file" sap:VirtualizedContainerService.HintSize="901,3499" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Sequence - per file" sap:VirtualizedContainerService.HintSize="901,4031" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="859,3407" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="859,3939" sap2010:WorkflowViewState.IdRef="Sequence_4">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,27 +119,28 @@
                 </Assign.Value>
               </Assign>
               <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="817,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[Path.GetExtension(item.ToString)]" />
-              <Switch x:TypeArguments="x:String" DisplayName="Switch based on extension" Expression="[Path.GetExtension(item.ToString)]" sap:VirtualizedContainerService.HintSize="817,3114" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Switch x:TypeArguments="x:String" DisplayName="Switch based on extension" Expression="[Path.GetExtension(item.ToString)]" sap:VirtualizedContainerService.HintSize="817,3646" sap2010:WorkflowViewState.IdRef="Switch`1_1">
                 <Switch.Default>
                   <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Skipping file: &quot;+ item.ToString + &quot;. File types of &quot;+Path.GetExtension(item.ToString)+  &quot; are not supported.&quot;]" />
                 </Switch.Default>
-                <Sequence x:Key=".pdf" sap:VirtualizedContainerService.HintSize="777,2930" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <Sequence x:Key=".pdf" sap:VirtualizedContainerService.HintSize="777,3462" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Start Process" FileName="[item.ToString]" sap:VirtualizedContainerService.HintSize="735,87" sap2010:WorkflowViewState.IdRef="StartProcess_2" />
-                  <Sequence DisplayName="Sequence pdf" sap:VirtualizedContainerService.HintSize="735,2711" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <Sequence DisplayName="Sequence pdf" sap:VirtualizedContainerService.HintSize="735,3243" sap2010:WorkflowViewState.IdRef="Sequence_8">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="693,61" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="PDF" />
-                    <Sequence DisplayName="PrintSequence" sap:VirtualizedContainerService.HintSize="693,2518" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <Sequence DisplayName="PrintSequence" sap:VirtualizedContainerService.HintSize="693,3050" sap2010:WorkflowViewState.IdRef="Sequence_6">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="x:String" Name="fileName" />
+                        <Variable x:TypeArguments="x:Boolean" Name="isOverwrite" />
                       </Sequence.Variables>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -307,6 +308,41 @@
                           </ui:Click.Target>
                         </ui:Click>
                       </Sequence>
+                      <ui:UiElementExists DisplayName="Check for save over" Exists="[isOverwrite]" sap:VirtualizedContainerService.HintSize="651,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+                        <ui:UiElementExists.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="484a512e-b273-4823-8d84-7a1d82013005" InformativeScreenshot="4c3ebd45ad2d716ecdb5192084a8775b" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Confirm Save As' /&gt;" TimeoutMS="500">
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:UiElementExists.Target>
+                      </ui:UiElementExists>
+                      <If Condition="[isOverwrite]" DisplayName="IfAskSaveOver" sap:VirtualizedContainerService.HintSize="651,346" sap2010:WorkflowViewState.IdRef="If_3">
+                        <If.Then>
+                          <Sequence sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_14" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                              <ui:Click.CursorPosition>
+                                <ui:CursorPosition OffsetX="39" OffsetY="12" Position="TopLeft" />
+                              </ui:Click.CursorPosition>
+                              <ui:Click.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e5112620-aa1b-488d-bccf-266ef8fa540a" InformativeScreenshot="6eb5b8463c62d6758846f973537679aa" Selector="&lt;wnd app='acrobat.exe' cls='#32770' title='Confirm Save As' /&gt;&lt;wnd aaname='Confirm Save As' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Yes' cls='Button' title='&amp;amp;Yes' /&gt;">
+                                  <ui:Target.TimeoutMS>
+                                    <InArgument x:TypeArguments="x:Int32" />
+                                  </ui:Target.TimeoutMS>
+                                  <ui:Target.WaitForReady>
+                                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                                  </ui:Target.WaitForReady>
+                                </ui:Target>
+                              </ui:Click.Target>
+                            </ui:Click>
+                          </Sequence>
+                        </If.Then>
+                      </If>
                       <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="651,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
                     </Sequence>
                   </Sequence>
@@ -319,6 +355,7 @@
     </ui:ForEach>
     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="937,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[sFiles]" />
     <ui:StartProcess WorkingDirectory="{x:Null}" Arguments="[&quot;&quot;+toFlattenFolder+&quot;\flat&quot;]" DisplayName="Open Flattened Folder" FileName="explorer.exe" sap:VirtualizedContainerService.HintSize="937,87" sap2010:WorkflowViewState.IdRef="StartProcess_3" />
+    <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="937,22" sap2010:WorkflowViewState.IdRef="Delay_6" />
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Completed message" sap:VirtualizedContainerService.HintSize="937,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Completed, your files are here. Thanks for using FlattenBot and be sure to tell a friend&quot;]" />
   </Sequence>
 </Activity>
